@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
+import { Filter } from './Filter/Filter';
+import {ContactList} from './ContactList/ContactList'
 
 export class App extends Component {
   state = {
@@ -18,7 +20,26 @@ export class App extends Component {
     }));
   };
 
-  
+  deleteContact = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }))
+  };
+
+  setFilter = filterValue => {
+    this.setState({
+      filter: filterValue,
+    });
+  };
+
+  filterContact = () => {
+    const { contacts, filter } = this.setState;
+    const filterLowerCase = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filterLowerCase)
+    );
+  };
+
 
   render() {
     return (
