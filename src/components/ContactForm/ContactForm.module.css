@@ -1,0 +1,14 @@
+.contactForm {
+  padding-bottom: 20px;
+}
+.formInput {
+  font-weight: bold;
+}
+
+.formLabel {
+  padding: 5px 0px;
+}
+
+.button {
+  margin-left: 20px;
+}
